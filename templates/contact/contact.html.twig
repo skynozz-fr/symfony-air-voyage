@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="container py-5">
+        <h1 class="mb-4">Contactez-nous</h1>
+
+        <div class="mb-4">
+            <h5 class="mb-3">Suivez-nous sur les réseaux sociaux :</h5>
+            <ul class="list-unstyled">
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-twitter me-2"></i>Twitter</a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="text-decoration-none text-dark"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mb-4">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ex vel tellus volutpat sagittis nec eu dui. Ut gravida metus vel orci malesuada, ut vehicula turpis viverra. In vel congue orci. Vestibulum nec tristique metus.
+            </p>
+        </div>
+
+        <div class="mb-4">
+            <h5 class="mb-3">Formulaire de contact :</h5>
+            <form class="form-floating">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" id="floatingName" placeholder="Votre nom" required>
+                        <label for="floatingName"></label>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control" id="floatingEmail" placeholder="Votre email" required>
+                        <label for="floatingEmail"></label>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <textarea class="form-control" id="floatingMessage" rows="5" placeholder="Votre message" required></textarea>
+                        <label for="floatingMessage"></label>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-dark">Envoyer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

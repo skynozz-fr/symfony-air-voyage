@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="display-4 text-center mb-4">Bienvenue chez <span class="text-primary">AirVoyage</span></h1>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ asset('assets/images/a_propos/about.jpg') }}" class="img-fluid rounded w-50" alt="À propos de notre compagnie">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Qui sommes-nous ?</h2>
+                <p>Nous sommes une compagnie spécialisée dans les services de voyages et de réservations de vols.</p>
+                <p>Notre mission est de fournir à nos clients une expérience de voyage exceptionnelle, avec un service de qualité et des tarifs compétitifs.</p>
+                <p>Que vous planifiiez un voyage d'affaires ou des vacances en famille, nous sommes là pour vous aider à trouver les meilleures options qui répondent à vos besoins.</p>
+            </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-3">Notre Équipe</h2>
+                <p>Nous sommes fiers de notre équipe dévouée et expérimentée qui travaille chaque jour pour offrir à nos clients le meilleur service possible.</p>
+                <p>Notre équipe est composée de professionnels passionnés par le voyage et soucieux de vous offrir une expérience mémorable à chaque étape de votre voyage.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ asset('assets/images/a_propos/team.png') }}" class="img-fluid rounded w-50" alt="Notre Équipe">
+            </div>
+        </div>
+    </div>
+{% endblock %}

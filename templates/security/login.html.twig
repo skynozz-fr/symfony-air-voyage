@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h3 mb-3 font-weight-normal text-center">Connexion</h1>
+                        <form method="post">
+                            {% if error %}
+                                <div class="alert alert-danger text-center">
+                                    Identifiants invalides
+                                </div>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    Vous êtes connecté en tant que <strong>{{ app.user.userIdentifier }}</strong>, <a href="{{ path('app_logout') }}" class="text-dark">Déconnexion</a>
+                                </div>
+                            {% else %}
+                                <p class="text-center">Vous n'avez pas de compte ? <a href="{{ path('app_register') }}" class="text-dark">Créer un compte</a></p>
+                            {% endif %}
+
+                            <div class="form-group mb-3">
+                                <label for="inputUsername" class="mb-1">Nom d'utilisateur</label>
+                                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-4" autocomplete="username" required autofocus>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="inputPassword" class="mb-1">Mot de passe</label>
+                                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                            </div>
+
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" name="_remember_me">
+                                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+                            </div>
+
+                            <button class="btn btn-dark btn-block" type="submit">Connexion</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .form-check-input:checked {
+            background-color: #000;
+        }
+    </style>
+
+{% endblock %}

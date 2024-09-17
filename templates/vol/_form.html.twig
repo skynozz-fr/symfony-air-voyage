@@ -1,0 +1,47 @@
+{{ form_start(formVol) }}
+
+<div class="mb-3">
+    {{ form_label(formVol.horraireDepart) }}
+    {{ form_widget(formVol.horraireDepart) }}
+    {{ form_errors(formVol.horraireDepart) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.villeDepart) }}
+    {{ form_widget(formVol.villeDepart) }}
+    {{ form_errors(formVol.villeDepart) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.horraireArrivee) }}
+    {{ form_widget(formVol.horraireArrivee) }}
+    {{ form_errors(formVol.horraireArrivee) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.villeArrivee) }}
+    {{ form_widget(formVol.villeArrivee) }}
+    {{ form_errors(formVol.villeArrivee) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.prix) }}
+    {{ form_widget(formVol.prix) }}
+    {{ form_errors(formVol.prix) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.etiquetteReduction) }}
+    {{ form_widget(formVol.etiquetteReduction) }}
+    {{ form_errors(formVol.etiquetteReduction) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(formVol.nombrePlaceAReserver) }}
+    {{ form_widget(formVol.nombrePlaceAReserver) }}
+    {{ form_errors(formVol.nombrePlaceAReserver) }}
+</div>
+
+<button class="btn btn-dark">{{ button_label|default('Créer') }}</button>
+
+{{ form_end(formVol) }}

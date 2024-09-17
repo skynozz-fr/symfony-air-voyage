@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if user.username is defined %}
+        Modifier l'utilisateur {{ user.username }}
+    {% else %}
+        Modifier un utilisateur
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {% if user.username is defined %}
+                                Modifier l'utilisateur {{ user.username }}
+                            {% else %}
+                                Modifier un utilisateur
+                            {% endif %}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                    </div>
+                    <div class="card-footer text-center">
+                        {{ include('user/_delete_form.html.twig') }}
+                        <a href="{{ path('app_user_index') }}" class="btn btn-secondary mt-3">Retourner à la liste</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des vols{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mb-4"><i class="bi bi-file-lock me-3"></i>Liste des vols - Administration<i class="bi bi-file-lock ms-3"></i></h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Numéro de vol</th>
+                    <th scope="col">Ville de départ</th>
+                    <th scope="col">Ville d'arrivée</th>
+                    <th scope="col">Heure de départ</th>
+                    <th scope="col">Heure d'arrivée</th>
+                    <th scope="col">Places</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Réduction</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for vol in vols %}
+                    <tr>
+                        <td>{{ vol.numeroVol }}</td>
+                        <td>
+                            {{ vol.villeDepart }} <i class="fas fa-plane-departure" style="color: #6c757d;"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-plane-arrival" style="color: #6c757d;"></i> {{ vol.villeArrivee }}
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark fw-bold">
+                                {{ vol.horraireDepart ? vol.horraireDepart|date('d/m/Y H:i') : '' }}
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark fw-bold">
+                                {{ vol.horraireArrivee ? vol.horraireArrivee|date('d/m/Y H:i') : '' }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if vol.nombrePlaceAReserver <= 25 %}
+                                <span class="badge text-bg-danger text-light">{{ vol.nombrePlaceAReserver }} places restantes</span>
+                            {% elseif vol.nombrePlaceAReserver > 25 and vol.nombrePlaceAReserver <= 50 %}
+                                <span class="badge text-bg-warning text-dark">{{ vol.nombrePlaceAReserver }} places restantes</span>
+                            {% else %}
+                                <span class="badge text-bg-success text-light">{{ vol.nombrePlaceAReserver }} places restantes</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ vol.prix }} €</td>
+                        <td>
+                            {% if vol.etiquetteReduction %}
+                                <i class="bi bi-check-circle-fill text-success" style="font-size: 1.3em;"></i>
+                            {% else %}
+                                <i class="bi bi-x-circle-fill text-muted" style="font-size: 1.3em;"></i>
+                            {% endif %}
+                        </td>
+                        <td><a href="{{ path('app_vol_edit', {'id': vol.id}) }}" class="link-dark" style="font-size: 1.2em;"><i class="bi bi-pencil-square"></i></a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">Aucun vol trouvé.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ path('app_vol_new') }}" class="btn btn-success">Ajouter un vol</a>
+    </div>
+{% endblock %}

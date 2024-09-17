@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Vol{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mb-4">Détails du Vol</h1>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th scope="row">ID</th>
+                <td>{{ vol.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Numéro de vol</th>
+                <td>{{ vol.numeroVol }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Heure de départ</th>
+                <td>{{ vol.horraireDepart ? vol.horraireDepart|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ville de départ</th>
+                <td>{{ vol.villeDepart }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Heure d'arrivée</th>
+                <td>{{ vol.horraireArrivee ? vol.horraireArrivee|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ville d'arrivée</th>
+                <td>{{ vol.villeArrivee }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Prix</th>
+                <td>{{ vol.prix }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Réduction</th>
+                <td>{{ vol.etiquetteReduction ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Places à réserver</th>
+                <td>{{ vol.nombrePlacesAReserver }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="mt-3">
+            <a href="{{ path('app_vol_index') }}" class="btn btn-secondary">Retour à la liste</a>
+            <form method="post" action="{{ path('app_vol_delete', {'id': vol.id}) }}" style="display: inline;">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vol.id) }}">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce vol ?')">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

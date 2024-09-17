@@ -1,0 +1,27 @@
+{{ form_start(formUser) }}
+
+<div class="mb-3">
+    {{ form_label(formUser.username, 'Nom d\'utilisateur', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(formUser.username, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(formUser.username) }}
+</div>
+
+{% if not formUser.vars.data.id %}
+    <div class="mb-3">
+        {{ form_label(formUser.password, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(formUser.password, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(formUser.password) }}
+    </div>
+{% endif %}
+
+{% if is_granted('ROLE_ADMIN') %}
+    <div class="mb-3">
+        {{ form_label(formUser.roles, 'Rôles', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(formUser.roles) }}
+        {{ form_errors(formUser.roles) }}
+    </div>
+{% endif %}
+
+<button type="submit" class="btn btn-dark">{{ button_label|default('Créer') }}</button>
+
+{{ form_end(formUser) }}
