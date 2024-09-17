@@ -1,4 +1,7 @@
 
+# Ignore environment variables file
+.env
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
