@@ -77,13 +77,7 @@ Avant de cloner et d'installer ce projet, assurez-vous d'avoir les éléments su
     php bin/console doctrine:migrations:migrate
     ```
 
-8. (Optionnel) Chargez les données de base pour les vols et utilisateurs avec les fixtures (si disponibles) :
-
-    ```bash
-    php bin/console doctrine:fixtures:load
-    ```
-
-9. Compilez les assets (CSS, JavaScript) :
+8. Compilez les assets (CSS, JavaScript) :
 
     ```bash
     npm install
