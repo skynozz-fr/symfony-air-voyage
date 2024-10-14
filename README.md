@@ -38,7 +38,7 @@ Avant de cloner et d'installer ce projet, assurez-vous d'avoir les éléments su
 1. Clonez le dépôt GitHub :
 
     ```bash
-    git clone https://github.com/votre-nom-utilisateur/air-voyage.git
+    git clone https://github.com/skynozz-fr/air-voyage.git
     ```
 
 2. Accédez au répertoire du projet :
